@@ -5,7 +5,8 @@
 ## Notes
 - LayerNorm and BatchNorm: Horizontal and Vertical
   
-![Car Image](picture/1.jpg)
+
+<img src="picture/1.jpg" alt="Car Image" width="300">
 
   
 ## Conclusion
