@@ -27,4 +27,6 @@ when input is tensor([ 6, 12])--'{'Yo'}', the target is: [15]--'{'u'}'
 when input is tensor([ 6, 12, 15])--'{'You'}', the target is: [13]--'{'r'}'
 ```
 
+- For dataloader/batch generation, there are basically two parameters: '''batch_size'''(how many independent sequences will we process in parallel) and '''block_size'''(what is the maximum context length for predictions).
+
 ## Conclusion
