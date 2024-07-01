@@ -47,6 +47,6 @@ when input is tensor([14,  0,  3,  4])--'s GP', the target is: [5]--'T'
 when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
 ```
 
-- In the first phase, just let the input go through a simple embedding layer.
+- In the first phase, just let the input go through a simple embedding layer (C,C) [C is vocabulary size]. When generating new text, a parameter _max_new_tokens_ denotes how many more characters it will generate. 
 
 ## Conclusion
