@@ -29,7 +29,7 @@ when input is tensor([ 6, 12, 15])--'{'You'}', the target is: [13]--'{'r'}'
 
 - For dataloader/batch generation, there are basically two parameters: _batch_size_ (how many independent sequences will we process in parallel) and _block_size_ (what is the maximum context length for predictions). It defines the shape of input basically. For example if we generate three batch, we have the following,
 
-'''
+```
 when input is tensor([0])--' ', the target is: [9]--'i'
 when input is tensor([0, 9])--' i', the target is: [14]--'s'
 when input is tensor([ 0,  9, 14])--' is', the target is: [0]--' '
@@ -45,6 +45,6 @@ when input is tensor([14,  0])--'s ', the target is: [3]--'G'
 when input is tensor([14,  0,  3])--'s G', the target is: [4]--'P'
 when input is tensor([14,  0,  3,  4])--'s GP', the target is: [5]--'T'
 when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
-'''
+```
 
 ## Conclusion
