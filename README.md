@@ -3,7 +3,7 @@
 ## Introduction
 
 ## Notes
-- LayerNorm
+- LayerNorm and BatchNorm: Horizontal and Vertical
 
   
 ## Conclusion
