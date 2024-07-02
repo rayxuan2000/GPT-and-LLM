@@ -16,7 +16,7 @@ In this project, I will implement a simplified version of GPT, which mainly use 
  5. <img src="picture/5.jpg" alt="Baby GPT" width="300">
  
 ## Notes
-- LayerNorm and BatchNorm: Horizontal and Vertical difference, to put it simply
+
 - Use one single character as token unit, which can be modified in other form.
 - Generate mapping table from token to index and vice versa.
 - We are concerned about text generation here, which means given some texts what would be the next token (character)? So the input to the GPT is some text and the output will be the next character. For example, given a sentence like "Your name is GPT-3",
@@ -56,5 +56,8 @@ when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
 - "self-attention" just means that the keys and values are produced from the same source as queries. In "cross-attention", the queries still get produced from x, but the keys and values come from some other, external source (e.g. an encoder module).
 
 - "Scaled" attention additional divides wei by 1/sqrt(head_size). This makes it so when input Q,K are unit variance, wei will be unit variance too and Softmax will stay diffuse and not saturate too much.
-  
+
+- In the second phase, we just add attention module. Detailed structure can be found in Diagram part.
+
+- LayerNorm and BatchNorm: Horizontal and Vertical difference, to put it simply
 ## Conclusion
