@@ -49,4 +49,6 @@ when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
 
 - In the first phase, just let the input go through a simple embedding layer (C,C) [C is vocabulary size]. When generating new text, a parameter _max_new_tokens_ denotes how many more characters it will generate. 
 
+- **An important mathematical trick in self-attention**:  Use lower trianguler matrix to achieve weighted aggregation. Each row is like a batch, we only care about using preceding tokens and current token to predict current stuff. So this natural auto-regressive structure can be intuitive. In real implementation, this can be achieved by so called "masked_fill".
+  
 ## Conclusion
