@@ -49,6 +49,12 @@ when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
 
 - In the first phase, just let the input go through a simple embedding layer (C,C) [C is vocabulary size]. When generating new text, a parameter _max_new_tokens_ denotes how many more characters it will generate. 
 
-- **An important mathematical trick in self-attention**:  Use lower trianguler matrix to achieve weighted aggregation. Each row is like a batch, we only care about using preceding tokens and current token to predict current stuff. So this natural auto-regressive structure can be intuitive. In real implementation, this can be achieved by so called "masked_fill".
+- **An important mathematical trick in self-attention**:  Use lower trianguler matrix to achieve weighted aggregation. Each row is like a batch, we only care about using preceding tokens and current token to predict current stuff. So this natural auto-regressive structure can be intuitive. In real implementation, this can be achieved by so called "masked_fill". Each example across batch dimension is of course processed completely independently and never "talk" to each other. In an "encoder" attention block just delete the single line that does masking with tril, allowing all tokens to communicate. **This block here is called a "decoder" attention block** because it has triangular masking, and is usually used in autoregressive settings, like language modeling.
+
+- Attention is a communication mechanism. Can be seen as nodes in a directed graph looking at each other and aggregating information with a weighted sum from all nodes that point to them, with data-dependent weights. Here I make it a little bit simpler. There is rigorously no communication between any two tokens but just some part of them.
+
+- "self-attention" just means that the keys and values are produced from the same source as queries. In "cross-attention", the queries still get produced from x, but the keys and values come from some other, external source (e.g. an encoder module).
+
+- "Scaled" attention additional divides wei by 1/sqrt(head_size). This makes it so when input Q,K are unit variance, wei will be unit variance too and Softmax will stay diffuse and not saturate too much.
   
 ## Conclusion
