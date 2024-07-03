@@ -62,4 +62,4 @@ when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
 - LayerNorm and BatchNorm: Horizontal and Vertical difference, to put it simply
 
 ## Current status of LLM tuning
-<img src="picture/7.jpg" alt="Head" width="300">
+<img src="picture/7.png" alt="Head" width="300">
