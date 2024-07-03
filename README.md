@@ -64,6 +64,7 @@ when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
 
 ## About LoRA (Low-rank Adaption)
 
+<img src="picture/LoRA.png" alt="LoRA" width="200">
 
 - Pre-trained models have a very few intrinsic dimenison (described almost accurately by fewer dimensions). Inspired by this, the author in the original paper hypothesize the updates to the weights also have a low “intrinsic rank” during adaptation.
 - For delta weight matrix, do matrix decomposition to save memory (use less information to do the same thing).
