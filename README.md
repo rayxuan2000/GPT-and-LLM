@@ -1,7 +1,7 @@
 # GPT-and-LLM
 
 ## Introduction
-In this project, I will implement a simplified version of GPT, which mainly use decoder structure to generate new text file.
+In this project, I will implement a simplified version of GPT, which mainly use decoder structure to generate new text file. Then I will do a LoRA fine-tuning on Llama language model. (to be updated)
 
 ## Diagram
 - Structure that I use in this project:
