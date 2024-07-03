@@ -60,4 +60,6 @@ when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
 - In the second phase, we just add attention module. Detailed structure can be found in Diagram part.
 
 - LayerNorm and BatchNorm: Horizontal and Vertical difference, to put it simply
-## Conclusion
+
+## Current status of LLM tuning
+<img src="picture/7.jpg" alt="Head" width="300">
