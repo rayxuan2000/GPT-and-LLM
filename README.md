@@ -18,7 +18,7 @@ In this project, I will implement a simplified version of GPT, which mainly use 
 ## Notes
 
 - Use one single character as token unit, which can be modified in other form.
-- Generate mapping table from token to index and vice versa.
+- Generate mapping table from token to index and vice versa. Just sort unique character and then use their index.
 - We are concerned about text generation here, which means given some texts what would be the next token (character)? So the input to the GPT is some text and the output will be the next character. For example, given a sentence like "Your name is GPT-3",
 
 ```
