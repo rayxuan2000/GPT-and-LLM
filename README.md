@@ -47,6 +47,8 @@ when input is tensor([14,  0,  3,  4])--'s GP', the target is: [5]--'T'
 when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
 ```
 
+- Above is just an example to illustrate the input and output. But do pay attention that before position encoding, there is an embedding operation of size (vocab_size, embd_dim)!!! This convert a single numerical value to a embedding vector!
+- For positional encoding, just use the relative position in a single block. In real implementation, it's just pass a [0,1,...,T-1] tensor through an embedding layer of size (block_size, embd_dim).
 - In the first phase, just let the input go through a simple embedding layer (C,C) [C is vocabulary size]. When generating new text, a parameter _max_new_tokens_ denotes how many more characters it will generate. 
 
 - **An important mathematical trick in self-attention**:  Use lower trianguler matrix to achieve weighted aggregation. Each row is like a batch, we only care about using preceding tokens and current token to predict current stuff. So this natural auto-regressive structure can be intuitive. In real implementation, this can be achieved by so called "masked_fill". Each example across batch dimension is of course processed completely independently and never "talk" to each other. In an "encoder" attention block just delete the single line that does masking with tril, allowing all tokens to communicate. **This block here is called a "decoder" attention block** because it has triangular masking, and is usually used in autoregressive settings, like language modeling.
