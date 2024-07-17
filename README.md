@@ -59,9 +59,9 @@ when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
 
 - How to set Q,K and V in my project?
 ```
-self.key = nn.Linear(n_embd, head_size, bias=False)
-self.query = nn.Linear(n_embd, head_size, bias=False)
-self.value = nn.Linear(n_embd, head_size, bias=False)
+self.key = nn.Linear(embd_dim, head_size, bias=False)
+self.query = nn.Linear(embd_dim, head_size, bias=False)
+self.value = nn.Linear(embd_dim, head_size, bias=False)
 ```
 
 - In the second phase, we just add attention module. Detailed structure can be found in Diagram part.
