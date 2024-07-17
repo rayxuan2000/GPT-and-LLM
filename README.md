@@ -47,6 +47,19 @@ when input is tensor([14,  0,  3,  4])--'s GP', the target is: [5]--'T'
 when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
 ```
 
+-So the real input and output given to the GPT is like below:
+```
+input = tensor([[ 0,  9, 14,  0,  3],
+        [ 0,  9, 14,  0,  3],
+        [10,  8,  0,  9, 14],
+        [14,  0,  3,  4,  5]]);
+
+output = tensor([[ 9, 14,  0,  3,  4],
+        [ 9, 14,  0,  3,  4],
+        [ 8,  0,  9, 14,  0],
+        [ 0,  3,  4,  5,  1]])
+```
+
 - Above is just an example to illustrate the input and output. But do pay attention that before position encoding, there is an embedding operation of size (vocab_size, embd_dim)!!! This convert a single numerical value to a embedding vector!
 - For positional encoding, just use the relative position in a single block. In real implementation, it's just pass a [0,1,...,T-1] tensor through an embedding layer of size (block_size, embd_dim).
 - In the first phase, just let the input go through a simple embedding layer (C,C) [C is vocabulary size]. When generating new text, a parameter _max_new_tokens_ denotes how many more characters it will generate. 
