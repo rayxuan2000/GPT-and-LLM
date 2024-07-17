@@ -57,6 +57,13 @@ when input is tensor([14,  0,  3,  4,  5])--'s GPT', the target is: [1]--'-'
 
 - "Scaled" attention additional divides wei by 1/sqrt(head_size). This makes it so when input Q,K are unit variance, wei will be unit variance too and Softmax will stay diffuse and not saturate too much.
 
+- How to set Q,K and V in my project?
+```
+self.key = nn.Linear(n_embd, head_size, bias=False)
+self.query = nn.Linear(n_embd, head_size, bias=False)
+self.value = nn.Linear(n_embd, head_size, bias=False)
+```
+
 - In the second phase, we just add attention module. Detailed structure can be found in Diagram part.
 
 - LayerNorm and BatchNorm: Horizontal and Vertical difference, to put it simply
