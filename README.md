@@ -90,7 +90,7 @@ self.value = nn.Linear(embd_dim, head_size, bias=False)
 
 - Pre-trained models have a very few intrinsic dimenison (described almost accurately by fewer dimensions). Inspired by this, the author in the original paper hypothesize the updates to the weights also have a low “intrinsic rank” during adaptation.
 - For delta weight matrix, do matrix decomposition to save memory (use less information to do almost the same thing). For a pre-trained weight matrix W_{0} ∈ R^{d×k}
-, we constrain its update by representing the latter with a low-rank decomposition W_{0} + ∆W = W_{0} + BA, where B ∈ R^{d×r}, A ∈ R^{r×k}, and the rank r << min(d, k). During training, W_{0} is frozen and does not receive gradient updates, while A and B contain trainable parameters.
+, we constrain its update by representing the latter with a low-rank decomposition W_{0} + ∆W = W_{0} + BA, where B ∈ R^{d×r}, A ∈ R^{r×k}, and the rank r << min(d, k) [relate with the relation of a matrix rank and its two dimension]. During training, W_{0} is frozen and does not receive gradient updates, while A and B contain trainable parameters.
 
 ## Current status of LLM tuning
 <img src="picture/7.png" alt="Head" width="300">
