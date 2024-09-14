@@ -92,5 +92,16 @@ self.value = nn.Linear(embd_dim, head_size, bias=False)
 - For delta weight matrix, do matrix decomposition to save memory (use less information to do almost the same thing). For a pre-trained weight matrix W_{0} ∈ R^{d×k}
 , we constrain its update by representing the latter with a low-rank decomposition W_{0} + ∆W = W_{0} + BA, where B ∈ R^{d×r}, A ∈ R^{r×k}, and the rank r << min(d, k) [relate with the relation of a matrix rank and its two dimension]. During training, W_{0} is frozen and does not receive gradient updates, while A and B contain trainable parameters.
 
+## Libraries used in LLM
+
+- transformers: This library provides APIs for downloading pre-trained models.
+- bitsandbytes: It’s a library for quantizing a large language model to reduce the memory footprint of the model, especially on GPUs.
+- peft: This is used to add a LoRA adapter to the LLM.
+- trl: This library contains an SFT (Supervised Fine-Tuning) class to fine-tune a model.
+- accelerate and xformers: These libraries are used to increase the inference speed of the model.
+- wandb/tensorboard: It’s used for monitoring the training process.
+- datasets: This library is used to load datasets from Hugging Face.
+- gradio: It’s used for designing simple user interfaces.
+
 ## Current status of LLM tuning
 <img src="picture/7.png" alt="Head" width="300">
